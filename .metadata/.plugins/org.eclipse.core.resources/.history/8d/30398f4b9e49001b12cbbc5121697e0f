@@ -1,0 +1,11 @@
+package com.simple.command;
+
+import org.springframework.web.multipart.MultipartFile;
+
+public class UploadVO {
+	
+	private String name;
+	private MultipartFile file;
+	
+	
+}

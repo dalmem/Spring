@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+		
+		
+		<!-- namespace에서 mvc기능 추가 -->
+		<!-- web.xml에 설정파일로 추가.  -->
+			
+		<bean id="userAuthHandler" class="com.team404.common.util.interceptor.UserAuthHandler"/>
+		<bean id="boardAuthHandler" class="com.team404.common.util.interceptor.BoardAuthHandler"/>
+		<bean id="userLoginSuccessHandler" class="com.team404.common.util.interceptor.UserLoginSuccessHandler"/>
+		
+		
+		<mvc:interceptors>
+			<!-- 로그인된 유저만 사용할수 있는 권한 핸들러 -->
+			<mvc:interceptor>
+				<mvc:mapping path="/user/userMypage"/>
+				<mvc:mapping path="/freeBoard/freeRegist"/>
+				<ref bean="userAuthHandler"/><!-- 위에서 만든 userAuthHandler가 동작 -->
+				
+			</mvc:interceptor>
+			<!-- 게시글 수정, 변경, 삭제에 대한 권한핸들러 -->
+			<mvc:interceptor>
+				<mvc:mapping path="/freeBoard/freeModify"/>
+				<mvc:mapping path="/freeBoard/freeUpdate"/>
+				<mvc:mapping path="/freeBoard/freeDelete"/>
+				<ref bean="boardAuthHandler"/>
+			</mvc:interceptor>
+			
+			<!-- 로그인 이후에 실행되는 PostHandler -->
+			<mvc:interceptor>
+				<mvc:mapping path="/user/login"/> 
+				<ref bean="userLoginSuccessHandler"/>
+			</mvc:interceptor>
+			
+		</mvc:interceptors>
+		
+		<!-- 1.namespace에서 aop설정 체크,  -->
+		<!-- proxy를 생성하고, 자바에서 어노테이션 방법을 사용하도록 처리 -->
+		<aop:aspectj-autoproxy/>
+		
+		
+		
+		
+</beans>

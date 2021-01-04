@@ -1,0 +1,16 @@
+package com.team404.snsboard.service;
+
+import org.springframework.stereotype.Service;
+
+import com.team404.command.SnsBoardVO;
+
+@Service("snsBoardService")
+public class SnsBoardServiceImpl implements SnsBoardService{
+
+	@Override
+	public boolean insertFile(SnsBoardVO vo) {
+
+		return false;
+	}
+
+}

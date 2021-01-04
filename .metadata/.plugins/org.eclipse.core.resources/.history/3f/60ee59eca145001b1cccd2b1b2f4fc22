@@ -1,0 +1,28 @@
+package com.team404.user.service;
+
+
+import java.util.ArrayList;
+
+import com.team404.command.UserVO;
+import com.team404.user.mapper.UserMapper;
+
+public class UserServiceImpl implements UserService{
+
+	private UserMapper usermapper;
+	@Override
+	public int idCheck(String userId) {
+		System.out.println("impl");
+		System.out.println(usermapper.idCheck(userId));
+		ArrayList<UserVO> result = usermapper.idCheck(userId);
+		System.out.println(result);
+		return result;
+	}
+	@Override
+	public int Join(UserVO vo) {
+		int result = usermapper.Join(vo);
+		System.out.println(result);
+		return usermapper.Join(vo);
+	}
+	
+
+}

@@ -1,0 +1,5 @@
+package com.team404.common.util.aop;
+
+public class LogAdvice {
+
+}

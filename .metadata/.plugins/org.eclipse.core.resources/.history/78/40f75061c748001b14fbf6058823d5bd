@@ -1,0 +1,27 @@
+package com.team404.common.util.interceptor;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.ui.ModelMap;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+
+public class UserLoginSuccessHandler extends HandlerInterceptorAdapter{
+
+	//로그인 이후에 실행되는 핸들러 (PostHandler) 오버라이딩
+	//1. login요청으로 들어올 때 실행되도록 등록 
+	
+	@Override
+	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
+			ModelAndView modelAndView) throws Exception {
+	
+		//modelAndView객체에 있는 모델데이터가 map의 형식으로 반환
+		ModelMap mv = modelAndView.getModelMap();
+
+		System.out.println("로그인 포스트핸들러 실행됨");
+	}
+
+	
+	
+}

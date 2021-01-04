@@ -1,0 +1,13 @@
+package com.team404.user.service;
+
+import com.team404.command.UserVO;
+
+public class UserServiceImpl implements UserService{
+
+	@Override
+	public int idCheck(UserVO vo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

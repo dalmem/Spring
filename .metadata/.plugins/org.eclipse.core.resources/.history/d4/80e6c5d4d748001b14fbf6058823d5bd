@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.team404.user.mapper.UserMapper">
+  	<select id="idCheck" resultType="int">
+  		select count(*) as total from users where userId = #{userId}
+  	</select>
+  	<insert id="Join">
+  		insert into users (userId,userPw,userName,userPhone1,userPhone2,userEmail1,userEmail2,addrBasic,addrDetail,addrZipNum )
+  		values(#{userId},#{userPw},#{userName},#{userPhone1},#{userPhone2},#{userEmail1},#{userEmail2},#{addrBasic},#{addrDetail},#{addrZipNum})
+  	</insert>
+  	<select id="Login" resultType="UserVO">
+  		select * from users where userId = #{userId} and userPw=#{userPw}
+  	</select>
+  	<!-- 마이페이지 회원정보 -->
+  	<select id="getInfo" resultType="UserVO">
+  		select userid,username,userphone1,userphone1,useremail1,useremail2,addrbasic,addrdetail,u.addrzipnum , f.bno,f.title,f.regdate from users u left outer JOIN FREEBOARD f on u.userid= f.writer where u.userid= #{userId} order by f.bno desc;
+  	</select>
+  </mapper>

@@ -1,0 +1,29 @@
+package com.team404.user.service;
+
+
+import java.util.ArrayList;
+
+import org.springframework.stereotype.Service;
+
+import com.team404.command.UserVO;
+import com.team404.user.mapper.UserMapper;
+@Service("UserService")
+public class UserServiceImpl implements UserService{
+
+	private UserMapper usermapper;
+	@Override
+	public int idCheck(String userId) {
+		
+		
+		
+		return usermapper.idCheck(userId); 
+	}
+	@Override
+	public int Join(UserVO vo) {
+		int result = usermapper.Join(vo);
+		System.out.println(result);
+		return usermapper.Join(vo);
+	}
+	
+
+}

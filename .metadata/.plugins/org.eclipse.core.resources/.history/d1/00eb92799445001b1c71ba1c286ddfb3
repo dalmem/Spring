@@ -1,0 +1,7 @@
+package com.team404.user.mapper;
+
+import com.team404.command.UserVO;
+
+public interface UserMapper {
+	int idCheck(UserVO vo);
+}
