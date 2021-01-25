@@ -1,8 +1,0 @@
-package com.team404.user.mapper;
-
-import com.team404.command.UserVO;
-
-public interface UserMapper {
-	public int idCheck(String userId);
-	public int Join(UserVO vo);
-}

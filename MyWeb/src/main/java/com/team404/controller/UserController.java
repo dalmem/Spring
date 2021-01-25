@@ -33,6 +33,11 @@ public class UserController {
 		
 		return "user/userJoin";
 	}
+	@RequestMapping("/join")
+	public String join() {
+		
+		return "user/join";
+	}
 	@RequestMapping("/userLogin")
 	public String userLogin() {
 		

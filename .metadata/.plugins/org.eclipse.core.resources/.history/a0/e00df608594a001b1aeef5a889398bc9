@@ -1,9 +1,0 @@
-package com.team404.snsboard.mapper;
-
-import com.team404.command.SnsBoardVO;
-import com.team404.snsboard.service.ArrayList;
-
-public interface SnsBoardMapper {
-	public boolean insertFile(SnsBoardVO vo);
-	public ArrayList<SnsBoardVO> getList();
-}

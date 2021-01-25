@@ -1,7 +1,0 @@
-package com.team404.snsboard.mapper;
-
-import com.team404.command.SnsBoardVO;
-
-public class SnsBoardMapper {
-	public boolean insertFile(SnsBoardVO vo);
-}

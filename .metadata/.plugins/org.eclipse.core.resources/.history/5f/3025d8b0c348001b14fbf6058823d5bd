@@ -1,8 +1,0 @@
-package com.team404.common.util.interceptor;
-
-public class UserLoginSuccessHandler {
-
-	//로그인 이후에 실행되는 핸들러 (PostHandler) 오버라이딩
-	
-	
-}

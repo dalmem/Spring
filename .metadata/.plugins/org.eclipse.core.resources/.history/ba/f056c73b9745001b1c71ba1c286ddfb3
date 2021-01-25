@@ -1,7 +1,0 @@
-package com.team404.user.mapper;
-
-
-
-public interface UserMapper {
-	int idCheck(String userId);
-}
